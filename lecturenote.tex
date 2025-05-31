@@ -178,7 +178,7 @@ B. 強相関電子系
   \end{align}
   両辺に\(\bra{m(t)}(m\neq n)\)を作用させると
   \begin{equation}
-    i\hbar\dot{C}_m+i\hbar\sum_n C_n\braket{m|\dot{n}}=E_mC_m. \tag{1.1.3}
+    i\hbar\dot{C_m}+i\hbar\sum_n C_n\braket{m|\dot{n}}=E_mC_m. \tag{1.1.3}
   \end{equation}
   ここで
   \begin{equation}
@@ -329,7 +329,7 @@ Berry curvature
   \begin{equation}
     \psi(\bm{r})=\exp\left(-i\frac{e}{\hbar c}\int_{\bm{R}}^{\bm{r}}\bm{A}(\bm{x})d\bm{x}\right)\psi_0(\bm{r}-\bm{R})
   \end{equation}
-  ※\(\psi_0\)にはglobal phaseの任意性があるので，箱内で\(\psi_0\)が実数になるように選ぶ\footnote{電子は箱の中に束縛されていると考える。束縛状態に対して，ハミルトニアンのエルミート性からその複素共役も同一エネルギーの固有状態である。縮退がないとすると，両者は位相の違いを除けば等しいことがわかるので，全体位相の任意性の自由度を利用することで実数にすることができる。}。
+  ※\(\psi_0\)にはglobal phaseの任意性があるので，箱内で\(\psi_0\)が実数になるように選ぶ。(\textcolor{red}{?})
 
   ベリー接続
   \begin{align}
@@ -491,26 +491,6 @@ Berry curvature
     \nabla \cdot\bm{E}=4\pi\rho, \quad \nabla\cdot\bm{B}=4\pi\rho_{\text{m}}\to\int\bm{B}d\bm{S}=4\pi Q_{\text{m}}
   \end{equation}
   なので，モノポールチャージ\(Q_{\text{m}}=\mp1/2\)を意味する。
-  
-  \textcolor{red}{この部分はベリー位相を考えるのではなく，ベリー曲率\(\bm{\Omega}^\pm\)からモノポールチャージに繋げるべき。電磁気との対応関係は\(\bm{B}\leftrightarrow\bm{\Omega}\)であったことを思い出すと，モノポールチャージ\(Q_{\text{m}}\)が作る磁場は，点電荷からの類推で
-  \begin{equation}
-    \bm{B}=\frac{Q_{\text{m}}\bm{R}}{R^3}
-  \end{equation}
-  となる\footnote{ガウス単位系は\(\epsilon_0=\mu_0=1\)かつ非有理系なので\(\frac{1}{4\pi\epsilon_0}\)などの係数は付かない。}。これと(1.2.10)を比べることで上記の結論が得られる。別の議論。モノポールチャージ密度を\(\rho(\bm{R})\coloneq1/4\pi\nabla_{\bm{R}}\cdot\bm{\Omega}(\bm{R})\)で定義することにする。この定義に従うと
-  \begin{equation}
-    \nabla_{\bm{R}}\cdot\frac{\bm{R}}{R^3}=4\pi\delta(\bm{R})
-  \end{equation}
-  を用いることで
-  \begin{equation}
-    \rho^\pm(\bm{R})=\mp\frac{1}{2}\delta(\bm{R})
-  \end{equation}
-  となり，明らかにモノポールが原点に存在すると言える。
-  % ここで，原点を含む球\(V\)で
-  % \begin{align}
-  %   \int_{O\in V}\nabla\cdot\frac{\bm{R}}{R^3}d^3R&=\int_{\partial V}\frac{\bm{R}}{R^3}\cdot d\bm{S} \\
-  %   &=4\pi
-  % \end{align}
-  }
 
   \begin{equation}
     \bm{A}^\pm=\frac{1\pm\cos\theta}{R\sin\theta}\bm{e}_\phi\rightarrow \theta=0,\pi\text{で}A^-,A^+\text{がそれぞれ定義できない}
@@ -602,7 +582,7 @@ Berry curvature
 
 結晶中の電子を考える。
 \begin{equation}
-	\mathcal{H}(\bm{r}) = -\frac{\hbar^2}{2m}\nabla^2 + V(\bm{r}) \label{1.4.2}
+	\mathcal{H}(\bm{r}) = -\frac{\hbar^2\nabla^2}{2m} + V(\bm{r}) \label{1.4.2}
 \end{equation}
 \begin{equation}
 	V(\bm{r}) = V(\bm{r} + \bm{R}) \label{1.4.3}
@@ -639,50 +619,10 @@ Berry curvature
 \end{equation}
 とおくと
 \begin{equation}
-	\psi_{n\bm{k}}(\bm{r}+\bm{R}) = e^{i\bm{k}\bm{R}}\psi_{n\bm{k}}(\bm{r}). \label{1.4.8}
-\end{equation}
-\begin{equation}
-  u_{n,\bm{k}}(\bm{r}+\bm{R})=e^{-i\bm{k}\cdot\bm{r}}\psi(\bm{r})
-\end{equation}
-とおくと
-\begin{align}
-  u_{n,\bm{k}}(\bm{r}+\bm{R})&=e^{-i\bm{k}\cdot(\bm{r}+\bm{R})}\psi(\bm{r}+\bm{R}) \\
-  &=e^{-i\bm{k}\cdot\bm{r}}e^{-i\bm{k}\cdot\bm{R}}e^{i\bm{k}\cdot\bm{r}}\psi(\bm{r})\quad(\because \tag{1.4.8}) \\
-  &=u_{n,\bm{k}}(\bm{r})
-\end{align}
-より(1.4.1)が示された。
-
-(1.4.8)より
-\begin{align}
-  \mathcal{H}(\bm{r})\psi_{n,\bm{k}}(\bm{r})&=E_n\psi_{n,\bm{k}}(\bm{r}) \\
-  \mathcal{H}(\bm{r})e^{i\bm{k}\cdot\bm{r}}u_{n,\bm{k}}(\bm{r})&=E_n^{i\bm{k}\cdot\bm{r}}u_{n,\bm{k}}(\bm{r}) \\
-  \therefore \mathcal{H}(\bm{k})u_{n,\bm{k}}(\bm{r})&=E_nu_{n,\bm{k}}(\bm{r}) \label{1.4.9}
-\end{align}
-ここで，\(\mathcal{H}(\bm{k})\)は
-\begin{equation}
-  \mathcal{H}(\bm{k})\coloneq e^{-i\bm{k}\cdot\bm{r}}\mathcal{\bm{r}}e^{i\bm{k}\cdot\bm{r}}
-\end{equation}
-で定義されるブロッホハミルトニアンである。
-
-・Bloch状態のベリー曲率etc.
-
-\(\Longrightarrow\mathcal{H}(\bm{k}),u_{n,\bm{k}}(\bm{r})\)を使って定義する。
-
-ベリー位相
-\begin{equation}
-  \gamma^n(\bm{k})\coloneq\oint_C \bm{A}^n(\bm{k})\cdot d\bm{k}
+	\psi_{n\bm{k}}(\bm{r}+\bm{R}) = e^{i\bm{k}\bm{R}}\psi_{n\bm{k}}(\bm{r})。 \label{1.4.8}
 \end{equation}
 
-ベリー接続
-\begin{equation}
-  \bm{A}^n(\bm{k})\coloneq i\braket{u_{n,\bm{k}}|\nabla_{\bm{k}}|u_{n,\bm{k}}}
-\end{equation}
 
-ベリー曲率
-\begin{align}
-  \bm{\Omega}^n\bm{k}&\coloneq\nabla_{\bm{k}}\times\bm{A}^n(\bm{k}) \\
-  &=i\sum_{i,j}\sum_{m\neq n}\epsilon_{ijk}\frac{\braket{u_{n,\bm{k}}|\frac{\partial \mathcal{H}}{\partial k_i}|u_{m,\bm{k}}}\braket{u_{m,\bm{k}}|\frac{\partial \mathcal{H}}{\partial k_j}|u_{n,\bm{k}}}}{(E_m-E_n)^2}
-\end{align}
 %\bibliographystyle{aip}
 %\bibliography{}
 \end{document}
